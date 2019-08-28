@@ -1,0 +1,28 @@
+.grid-container
+{
+    display: grid;
+   
+    
+    justify-content: space-evenly;
+    grid-template-areas:
+    'header     header      header     header    header       header'
+    'menu       menu        menu       menu      menu         menu'
+    'section    section     section    section   section      section'
+    'footer     footer      footer     footer    footer       footer';
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+.section-grid
+{
+    display: grid;
+    
+    
+    grid-template-areas:
+    'header     header      header     header    header       header'
+    'item1      item1       item2      item2     item3        item3'
+    'area1      area1       area1      area1     area1        area1'
+    'area2      area2       area2      area2     area2        area2';
+
+    font-family: Arial, Helvetica, sans-serif;
+  
+}

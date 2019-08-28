@@ -1,0 +1,33 @@
+#section
+{
+    grid-area: section;
+    
+
+}
+
+#item1
+{
+    
+    grid-area:item1;
+    
+}
+#item2
+{
+    grid-area:item2;
+      
+}
+#item3
+{
+    grid-area:item3;
+      
+}
+#area1
+{
+    grid-area:area1;
+    
+}
+#area2
+{
+    grid-area:area2;
+    
+}
