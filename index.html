@@ -30,9 +30,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
         }
 
-        @media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+            /* Ajuste de tamanho da fonte para dispositivos com largura máxima de 768 pixels */
             #contador {
-                font-size: 30px; /* Tamanho da fonte ajustado para dispositivos móveis */
+                font-size: 24px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            /* Ajuste adicional para dispositivos com largura máxima de 480 pixels */
+            #contador {
+                font-size: 18px;
             }
         }
         </style>
