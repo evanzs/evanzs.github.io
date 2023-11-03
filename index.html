@@ -33,7 +33,7 @@
 </head>
 <body>
     <div class="content">
-            <p id="contador">Falta: 0 dias 0h 0min 0s</p>
+            <p id="contador">Faltam: 0 dias 0h 0min 0s</p>
     </div>
 
     <script>
@@ -52,7 +52,7 @@
                 const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
                 const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-                document.getElementById("contador").textContent = `Falta: ${dias} dias ${horas}h ${minutos}min ${segundos}s`;
+                document.getElementById("contador").textContent = `Faltam: ${dias} dias ${horas}h ${minutos}min ${segundos}s`;
             }
         }
 
