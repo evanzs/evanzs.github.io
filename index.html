@@ -1,99 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Contador Regressivo</title>
-        <style>
-            body {
-                background-color: white;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                transition: background-image 1s ease-in-out;
-                            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            }
-        
-        .content {
-            text-align: center;
-        }
-
-        #contador {
-            font-size: 36px; /* Tamanho da fonte do contador */
-            background: rgba(255, 255, 255, 0.7); /* Fundo branco com transparência (valor alfa: 0.7) */
-            border-radius: 20px; /* Borda arredondada */
-            padding: 20px; /* Espaçamento interno */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
-        }
-
-@media screen and (max-width: 768px) {
-            /* Ajuste de tamanho da fonte para dispositivos com largura máxima de 768 pixels */
-            #contador {
-                font-size: 30px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            /* Ajuste adicional para dispositivos com largura máxima de 480 pixels */
-            #contador {
-                font-size: 30px;
-            }
-        }
-        </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download de Arquivo</title>
 </head>
 <body>
-    <div class="content">
-            <p id="contador">Faltam: 0 dias 0h 0min 0s</p>
-    </div>
-
-    <script>
-        // Data final desejada
-        const dataFinal = new Date("2024-01-05T00:00:00").getTime();
-
-        function atualizarContador() {
-            const agora = new Date().getTime();
-            const diferenca = dataFinal - agora;
-
-            if (diferenca <= 0) {
-                 document.getElementById("contador").textContent = "A  final chegou!";
-            } else {
-                const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-                const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-                const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-                document.getElementById("contador").textContent = `Faltam: ${dias} dias ${horas}h ${minutos}min ${segundos}s`;
-            }
-        }
-
-        // Atualizar o contador a cada segundo (1000ms)
-        const intervalID = setInterval(atualizarContador, 1000);
-
-
-                const backgrounds = [
-                        'background1.jpeg',
-                        'background2.jpeg',
-                        'background3.jpg'
-                        // Adicione mais imagens aqui
-                    ];
-
-                    let currentIndex = 0;
-
-                    function changeBackground() {
-                        const body = document.body;
-                        currentIndex = (currentIndex + 1) % backgrounds.length;
-                        body.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
-                    }
-
-                    setInterval(changeBackground, 60000); // Altera a cada minuto (60 segundos)
-
-                    // Chame a função uma vez para definir o plano de fundo inicial
-                    changeBackground();
-    </script>
+    <h1>Download de Arquivo na Raiz</h1>
+    <p>Clique no link abaixo para baixar o arquivo:</p>
+    <a href="/nome_do_arquivo.extensao" download>Download do Arquivo</a>
 </body>
 </html>
-
