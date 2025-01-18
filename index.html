@@ -10,30 +10,36 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="">
-            <h1>Text Analyzer</h1>
-            <ol>
-                <li>Copiar o texto no formato do exemplo abaixo</li>
-                <li>Escolher se é apenas com nota objetiva ou se terá a discursiva junto</li>
-                <li>Colar o texto copiado no campo abaixo.</li>
-                <li>Clicar em analisar.</li>
-            </ol>
-            
-            <a href="resultado.txt" download>Baixar Arquivo TXT</a>
-            <a href="resultado.pdf" download>Baixar Arquivo PDF</a>
-            <div class="">
-            <label for="columnSelect">Escolha colunas de notas:</label>
-            <select id="columnSelect">
-                <option value="2">Nota Objetiva</option>
-                <option value="3">Nota Objetiva e Nota Discursiva</option>
-            </select>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-4">
+                <div class="">
+                <h1>Text Analyzer</h1>
+                <ol>
+                    <li>Copiar o texto no formato do exemplo abaixo</li>
+                    <li>Escolher se é apenas com nota objetiva ou se terá a discursiva junto</li>
+                    <li>Colar o texto copiado no campo abaixo.</li>
+                    <li>Clicar em analisar.</li>
+                </ol>
+
+                <a href="resultado.txt" download>Baixar Arquivo TXT</a>
+                <a href="resultado.pdf" download>Baixar Arquivo PDF</a>
+                <div class="">
+                    <label for="columnSelect">Escolha colunas de notas:</label>
+                    <select id="columnSelect">
+                        <option value="2">Nota Objetiva</option>
+                        <option value="3">Nota Objetiva e Nota Discursiva</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <textarea id="textInput" rows="10" cols="50"></textarea>
-        <div class="">           
-            <button onclick="splitText()">ANALISAR</button>
-        </div>
+            <div>
+                <textarea id="textInput" rows="10" cols="50"></textarea>
+                <div class="">           
+                    <button onclick="splitText()">ANALISAR</button>
+                </div>
+            </div>
+            </div>
+        </div>       
     </div>
     <br>
     <script>
@@ -42,9 +48,11 @@
         areaInput.textContent = DATA_TYPE_THREE;
 
         function splitText() {
-            let table = document.getElementsByTagName('table');
-            if (table.length > 0) {
-                table[0].remove();
+            let corpo = document.getElementById('corpo');
+            console.log("corpo", corpo);
+            if (corpo) {
+                console.log("removendo corpo");
+                corpo.remove();
             }
             
             const textInput = document.getElementById('textInput').value;
@@ -54,7 +62,7 @@
         
         let arrayData = selectType === '2'?   parseTextToArray(data) : parseTextToArrayTypeThree(data);
        
-        table = document.createElement('table');
+        const table = document.createElement('table');
         const headerRow = document.createElement('tr');
       
         table.className = 'table table-striped';
@@ -84,13 +92,13 @@
             });
             table.appendChild(row);
         });
-        
-        const corpo = document.createElement('div');
-        corpo.className = 'container';
-        corpo.style = 'height:500px; width: 50%; margin: 0 auto; scroll: auto; overflow: auto;';
+        corpo = document.createElement('div');
+        corpo.id = 'corpo';
+        corpo.className = 'col';
+        corpo.style = 'height:500px; margin: 0 auto; scroll: auto; overflow: auto;';
         corpo.appendChild(table);
-        
-        document.body.appendChild(corpo);
+        const container = document.querySelector('.row');
+        container.appendChild(corpo);
             
         }
              
