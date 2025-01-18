@@ -1,6 +1,6 @@
 
 function splitTextContent(textContent) {
-    console.log(textContent)
+    
      const text = textContent.split('/');    
     return text;
 }
