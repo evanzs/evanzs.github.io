@@ -20,8 +20,8 @@
                 <li>Clicar em analisar.</li>
             </ol>
             
-            <a href="teste.txt" download>Baixar Arquivo TXT</a>
-            <a href="path/to/arquivo2.txt" download>Baixar Arquivo PDF</a>
+            <a href="resultado.txt" download>Baixar Arquivo TXT</a>
+            <a href="resultado.pdf" download>Baixar Arquivo PDF</a>
             <div class="">
             <label for="columnSelect">Escolha colunas de notas:</label>
             <select id="columnSelect">
@@ -85,7 +85,12 @@
             table.appendChild(row);
         });
         
-        document.body.appendChild(table);
+        const corpo = document.createElement('div');
+        corpo.className = 'container';
+        corpo.style = 'height:500px; width: 50%; margin: 0 auto; scroll: auto; overflow: auto;';
+        corpo.appendChild(table);
+        console.log(corpo)
+        document.body.appendChild(corpo);
             
         }
              
